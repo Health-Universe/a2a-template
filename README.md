@@ -43,7 +43,26 @@ Edit `main.py` to customize your agent:
 ### Progress Updates
 
 ```python
+from health_universe_a2a import UpdateImportance
+
+# Progress updates are shown in Navigator UI by default
 await context.update_progress("Analyzing data...", progress=0.5)
+
+# Use INFO for verbose logging that shouldn't clutter the UI
+await context.update_progress("Debug details...", importance=UpdateImportance.INFO)
+```
+
+> **Note:** The SDK automatically sends a terminal status when `process_message()` completes, ensuring the Navigator progress bar always finishes properly.
+
+### Artifacts
+
+```python
+# Prefer markdown - the platform has markdown WYSIWYG support
+await context.add_artifact(
+    name="Analysis Report",
+    content=markdown_report,
+    data_type="text/markdown"
+)
 ```
 
 ### Working with Documents
