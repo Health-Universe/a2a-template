@@ -5,7 +5,7 @@ description = "A Health Universe A2A Agent"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "health-universe-a2a @ git+https://github.com/Health-Universe/healthuniverse-a2a-sdk-python.git",
+    "health-universe-a2a>=0.2.0"
 ]
 
 [project.optional-dependencies]
